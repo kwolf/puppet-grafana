@@ -21,10 +21,7 @@ class grafana::install {
 
   case $::grafana::install_method {
     'docker': {
-      docker::image { 'grafana/grafana':
-        image_tag => $::grafana::version,
-        require   => Class['docker'],
-      }
+      fail ('This fork does not support docker installs.')
     }
     'package': {
       case $::osfamily {
